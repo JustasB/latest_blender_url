@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="latest_blender_url",
-    version="0.1.4",
+    version="0.1.5",
     author="Justas Birgiolas",
     author_email="justas@asu.edu",
     description="A python package that retrieves the latest Blender download URL",
@@ -20,4 +20,8 @@ setuptools.setup(
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
+    install_requires=[
+        'lxml',
+        'beautifulsoup4',
+    ]
 )
