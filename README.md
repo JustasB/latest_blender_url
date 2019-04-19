@@ -1,4 +1,6 @@
-[![PyPI version](https://badge.fury.io/py/latest_blender_url.svg)](https://badge.fury.io/py/latest_blender_url) [![Build Status](https://travis-ci.org/JustasB/latest_blender_url.svg?branch=master)](https://travis-ci.org/JustasB/latest_blender_url) [![codecov](https://codecov.io/gh/JustasB/latest_blender_url/branch/master/graph/badge.svg)](https://codecov.io/gh/JustasB/latest_blender_url)
+[![PyPI version](https://badge.fury.io/py/latest-blender-url.svg)](https://badge.fury.io/py/latest-blender-url) [![Build Status](https://travis-ci.org/JustasB/latest_blender_url.svg?branch=master)](https://travis-ci.org/JustasB/latest_blender_url) [![codecov](https://codecov.io/gh/JustasB/latest_blender_url/branch/master/graph/badge.svg)](https://codecov.io/gh/JustasB/latest_blender_url)
+
+`pip install latest_blender_url`
 
 # Get the latest Blender download URL and use it in a Travis CI scipt
 
