@@ -1,8 +1,29 @@
-def test_get_url():
+def test_get_default_url():
     from latest_blender_url import get_latest
     latest_url = get_latest()
     print('Latest url is', latest_url)
     assert "blender-" in latest_url
+
+def test_win_url():
+    from latest_blender_url import BlenderURLGetter
+    getter = BlenderURLGetter()
+    getter.archive_pattern = 'windows64.zip'        # Windows 64bit
+    url = getter.get_latest()
+    assert url.endswith(getter.archive_pattern)
+
+def test_mac_url():
+    from latest_blender_url import BlenderURLGetter
+    getter = BlenderURLGetter()
+    getter.archive_pattern = 'macOS.+?dmg'          # MacOS
+    url = getter.get_latest()
+    assert url.endswith('.dmg')
+
+def test_linux_url():
+    from latest_blender_url import BlenderURLGetter
+    getter = BlenderURLGetter()
+    getter.archive_pattern = 'linux.+?x86_64.+?bz2' # Linux 64bit
+    url = getter.get_latest()
+    assert url.endswith('.bz2')
 
 def test_download():
     from latest_blender_url import get_latest

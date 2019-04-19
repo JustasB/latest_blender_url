@@ -1,4 +1,5 @@
 import os, re
+from bs4 import BeautifulSoup
 
 # Python 2
 try:  
@@ -17,7 +18,7 @@ class BlenderURLGetter:
         self.download_page_url = "https://www.blender.org/download/"
 
         # The pattern to use (default is Linux 64-bit. Look at the download page for patterns of other platforms)
-        self.archive_pattern = '.+href="(.+?linux.+?x86_64.+?bz2)'
+        self.archive_pattern = 'linux.+?x86_64.+?bz2'
 
         # Whether to print the download URL on screen (useful when this script is used within the context of a shell script)
         self.print_url = True
@@ -29,8 +30,7 @@ class BlenderURLGetter:
 
     def find_archive(self, html):
         '''Uses regular expressions to find the archive url'''
-
-        return re.search(self.archive_pattern,html).group(1)
+        return next(a['href'] for a in BeautifulSoup(html, 'lxml').find_all('a', href=re.compile(self.archive_pattern)))
 
     def get_latest(self):
         '''Follows the download page links to get the final download URL'''

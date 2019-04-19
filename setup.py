@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="latest_blender_url",
-    version="0.1.2",
+    version="0.1.3",
     author="Justas Birgiolas",
     author_email="justas@asu.edu",
     description="A python package that retrieves the latest Blender download URL",
