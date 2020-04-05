@@ -1,3 +1,5 @@
+# Update setup.py before running
+
 rm -R dist/*
 
 /home/justas/anaconda2/envs/pb35/bin/python setup.py sdist bdist_wheel
