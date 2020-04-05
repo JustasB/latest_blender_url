@@ -23,13 +23,19 @@ getter = BlenderURLGetter()
 getter.download_page_url = "https://www.blender.org/download/" 
 
 # Set the archive pattern (see Blender download page for URL formats)
-#getter.archive_pattern = 'linux.+?x86_64.+?bz2' # Linux 64bit
-#getter.archive_pattern = 'macOS.+?dmg'          # MacOS
+#getter.archive_pattern = 'linux64.tar.xz'       # Linux 64bit
+#getter.archive_pattern = 'macOS.dmg'            # MacOS
 #getter.archive_pattern = 'windows64.zip'        # Windows 64bit
 
 # This will scrape the download page and get the matching url
 url = getter.get_latest()
 ```
 
+# When Blender Download Page Changes (and daily build fails)
+ - Update the default pattern in `latest_blender_url\__init__.py`
+ - `archive_pattern`s in `tests\test_download.py`
+
+
 # Feel free to fork or submit a pull request with new features
+
 

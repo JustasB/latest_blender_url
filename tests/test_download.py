@@ -14,16 +14,16 @@ def test_win_url():
 def test_mac_url():
     from latest_blender_url import BlenderURLGetter
     getter = BlenderURLGetter()
-    getter.archive_pattern = 'macOS.+?dmg'          # MacOS
+    getter.archive_pattern = 'macOS.dmg'          # MacOS
     url = getter.get_latest()
-    assert url.endswith('.dmg')
+    assert url.endswith(getter.archive_pattern)
 
 def test_linux_url():
     from latest_blender_url import BlenderURLGetter
     getter = BlenderURLGetter()
-    getter.archive_pattern = 'linux.+?x86_64.+?bz2' # Linux 64bit
+    getter.archive_pattern = 'linux64.tar.xz' # Linux 64bit
     url = getter.get_latest()
-    assert url.endswith('.bz2')
+    assert url.endswith(getter.archive_pattern)
 
 def test_download():
     from latest_blender_url import get_latest
@@ -31,8 +31,8 @@ def test_download():
 
     print('Downloading Blender', latest_url)
     import os
-    os.system('curl -L -o blender.tar.bz2 ' + latest_url)
-    os.system('tar xvjf blender.tar.bz2')
+    os.system('curl -L -o blender.tar.xz ' + latest_url)
+    os.system('tar xvJf blender.tar.xz')
 
     # rename dir to just blender
     d = '.'
@@ -47,4 +47,8 @@ def test_download():
     assert os.path.exists('blender/blender')
 
     os.system('rm -R blender')
-    os.system('rm blender.tar.bz2')
+    os.system('rm blender.tar.xz')
+
+
+if __name__ == "__main__":
+    test_get_default_url()

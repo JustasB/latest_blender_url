@@ -18,7 +18,8 @@ class BlenderURLGetter:
         self.download_page_url = "https://www.blender.org/download/"
 
         # The pattern to use (default is Linux 64-bit. Look at the download page for patterns of other platforms)
-        self.archive_pattern = 'linux.+?x86_64.+?bz2'
+        # to match e.g. https://www.blender.org/download/Blender2.82/blender-2.82a-linux64.tar.xz/
+        self.archive_pattern = 'linux64.tar.xz'
 
         # Whether to print the download URL on screen (useful when this script is used within the context of a shell script)
         self.print_url = True
